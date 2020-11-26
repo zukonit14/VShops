@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+        android:id="@+id/shop_search_item"
+        android:icon="@drawable/ic_baseline_search_24"
+        android:title="@string/search_shop"
+        app:actionViewClass="androidx.appcompat.widget.SearchView"
+        app:showAsAction="collapseActionView|always" />
+
+    <!--app:showAsAction-->
+    <!-- set to always to have item always placed on action bar-->
+    <!-- set to collapseActionView to have item cover whole action bar-->
+
+    <!--app:actionViewClass-->
+    <!--set to  android.widget.SearchView clicking on search menu item search view will get displayed -->
+</menu>

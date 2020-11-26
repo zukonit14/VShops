@@ -1,0 +1,23 @@
+<resources>
+    <string name="app_name">VShops</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="welcome_home">Welcome Home!!!</string>
+    <string name="my_purchase">My Purchases</string>
+    <string name="my_order">My Orders</string>
+
+    <!-- Menu titles-->
+    <string name="edit_profile">Edit</string>
+    <string name="logout">Log-out</string>
+    <string name="delete_account">Delete account</string>
+
+    <string name="search_shop">Search shop name</string>
+
+    <!-- Dummy values-->
+    <string name="username">Chinmay Rahate</string>
+    <string name="user_mobile_no">8605157752</string>
+    <string name="user_email">crahate11@gmail.com</string>
+    <string name="user_address">Aishwaryam  Courtyard phase 2  Room no. B 602 gat no. 1169 and 1170  Near  Ganesh International School ,Newale wasti, Akurdi Chikhali road ,Pune 411062</string>
+    <string name="user_shop_name">User Shop</string>
+
+</resources>
