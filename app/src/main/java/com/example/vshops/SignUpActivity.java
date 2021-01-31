@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.InputType;
 import android.util.Log;
 import android.util.Patterns;
 import android.view.View;
@@ -20,8 +21,13 @@ public class SignUpActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sign_up);
         mEmailEditText=findViewById(R.id.email_edit_text_sign_up);
+
         mPasswordEditText=findViewById(R.id.password_edit_text_sign_up);
+        mPasswordEditText.setInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_PASSWORD);
+
         mConfirmPasswordEditText=findViewById(R.id.confirm_password_edit_text_sign_up);
+        mConfirmPasswordEditText.setInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_PASSWORD);
+
         mSignUpButton=findViewById(R.id.sign_up_button_sign_up);
 
 

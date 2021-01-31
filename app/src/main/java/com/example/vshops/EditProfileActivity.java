@@ -17,6 +17,7 @@ import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.google.firebase.Timestamp;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FieldPath;
@@ -60,6 +61,8 @@ public class EditProfileActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
+                startActivity(new Intent(EditProfileActivity.this,LocateShopMapsActivity.class));
+
             }
         });
 
@@ -82,6 +85,7 @@ public class EditProfileActivity extends AppCompatActivity {
                 mFirebaseFirestore.collection("users")
                         .document(mAuth.getCurrentUser().getEmail())
                         .set(user, SetOptions.merge());
+
 
                 Intent intent = new Intent(EditProfileActivity.this, MainActivity.class);
                 intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
@@ -109,7 +113,12 @@ public class EditProfileActivity extends AppCompatActivity {
                                 mMobile.setText(documentSnapshot.get("mobile").toString());
                                 mAddress.setText(documentSnapshot.get("address").toString());
                                 mShopName.setText(documentSnapshot.get("shop_name").toString());
-                                mLocation.setText(documentSnapshot.get("shop_location").toString());
+                                GeoPoint geoPoint=(GeoPoint)documentSnapshot.get("shop_location");
+                                if(geoPoint.getLongitude()==0&&geoPoint.getLatitude()==0)
+                                {
+                                    mLocation.setText("Location : NOT SET");
+                                }
+                                else mLocation.setText("Location : SET");
                             }
                         }
                     }

@@ -2,6 +2,7 @@ package com.example.vshops.AdapterClass;
 
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Color;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -56,8 +57,23 @@ public class OrderAdapter extends ArrayAdapter<Order> {
         // Populate the data into the template view using the data object
         productName.setText(mOrdersArrayList.get(position).mProductName);
         status.setText(mOrdersArrayList.get(position).mStatus);
-        time.setText(mOrdersArrayList.get(position).mTimestamp.toDate().toString());
-        qty.setText(mOrdersArrayList.get(position).mQty);
+        String mDate=mOrdersArrayList.get(position).mTimestamp.toDate().getDay()+"/"+mOrdersArrayList.get(position).mTimestamp.toDate().getMonth()+"/"+(Integer.toString(mOrdersArrayList.get(position).mTimestamp.toDate().getYear()+1900));
+        time.setText(mDate);
+        qty.setText("Quantity: "+mOrdersArrayList.get(position).mQty);
+        if(flag!=MY_ORDERS)
+        {
+            if(status.getText().toString().equals("Accepted")) {
+                status.setTextColor(Color.GREEN);
+            }
+            else if(status.getText().toString().equals("Rejected"))
+            {
+                status.setTextColor(Color.RED);
+            }
+            else{
+                status.setTextColor(Color.BLUE);
+            }
+
+        }
 
         convertView.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -69,6 +85,7 @@ public class OrderAdapter extends ArrayAdapter<Order> {
                     getContext().startActivity(intent);
 
                 }
+
 
             }
         });

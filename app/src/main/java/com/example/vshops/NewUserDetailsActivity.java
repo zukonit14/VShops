@@ -48,7 +48,18 @@ public class NewUserDetailsActivity extends AppCompatActivity {
         mDoneButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                getDetails();
+                if(mUserNameEditText.getText().toString().trim().isEmpty()||mMobileEditText.getText().toString().trim().isEmpty()||mAddressEditText.getText().toString().trim().isEmpty())
+                {
+                    Toast.makeText(NewUserDetailsActivity.this, "One or more empty fields", Toast.LENGTH_SHORT).show();
+                }
+                else if(validateMobile(mMobileEditText.getText().toString()))
+                {
+                    Toast.makeText(NewUserDetailsActivity.this, "Enter valid mobile number.", Toast.LENGTH_SHORT).show();
+                }
+                else
+                    {
+                    getDetails();
+                }
             }
         });
 
@@ -56,6 +67,17 @@ public class NewUserDetailsActivity extends AppCompatActivity {
         pwd=getIntent().getStringExtra("password");
 
 
+
+    }
+
+    private boolean validateMobile(String toString) {
+        if(toString.length()!=10)return true;
+        int i,n=toString.length();
+        for(i=0;i<n;i++)
+        {
+            if(toString.charAt(i)>'9'||toString.charAt(i)<'0')return true;
+        }
+        return false;
 
     }
 

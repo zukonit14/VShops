@@ -12,11 +12,15 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.Timestamp;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.firestore.CollectionReference;
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.Query;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 
 public class MyPurchasesActivity extends AppCompatActivity {
 
@@ -34,6 +38,8 @@ public class MyPurchasesActivity extends AppCompatActivity {
         //Inserting Dummy data for testing purposes
        arrayOfOrders=new ArrayList<Order>();
 
+      //  CollectionReference collectionReference=mFirebaseFirestore.collection("orders");
+       // collectionReference.orderBy("time",Query.Direction.DESCENDING);
        mFirebaseFirestore.collection("orders")
                .whereEqualTo("customer_email", FirebaseAuth.getInstance().getCurrentUser().getEmail())
                .get()
@@ -54,6 +60,17 @@ public class MyPurchasesActivity extends AppCompatActivity {
                                     order.mProductName=doc.get("product_name").toString();
                                     arrayOfOrders.add(order);
                                 }
+                                //arrayOfOrders.sort(sortByDate);
+                                Collections.sort(arrayOfOrders, new Comparator<Order>() {
+                                    @Override
+                                    public int compare(Order o1, Order o2) {
+                                       // o1.mTimestamp.c
+                                         if(o1.mTimestamp.compareTo(o2.mTimestamp)>0)return -1;
+                                         else if(o1.mTimestamp.compareTo(o2.mTimestamp)<0) return 1;
+                                         else return 0;
+                                    }
+                                });
+                                //Collections.reverse(arrayOfOrders);
                                 // Create the adapter to convert the array to views
                                 mMyPurchasesAdapter=new OrderAdapter(MyPurchasesActivity.this,arrayOfOrders,0);
 
@@ -68,5 +85,9 @@ public class MyPurchasesActivity extends AppCompatActivity {
 
 
 
+    }
+
+    public boolean sortByDate(Order a,Order b){
+        return (a.mTimestamp.getSeconds()<b.mTimestamp.getSeconds());
     }
 }

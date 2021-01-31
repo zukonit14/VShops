@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <array name="preloaded_fonts" translatable="false">
+        <item>@font/crimson_text_semibold</item>
+        <item>@font/lato</item>
+        <item>@font/lato_bold</item>
+        <item>@font/lobster_two_bold_italic</item>
+        <item>@font/marcellus_sc</item>
+        <item>@font/merriweather</item>
+        <item>@font/merriweather_bold</item>
+        <item>@font/roboto_medium</item>
+    </array>
+</resources>

@@ -96,7 +96,7 @@ public class OrderProductActivity extends AppCompatActivity {
                 if(documentSnapshot.exists()){
                     mProductTitleTextView.setText(documentSnapshot.get("product_name").toString());
                     mProductDetailsTextView.setText(documentSnapshot.get("details").toString());
-                    mProductPriceTextView.setText(documentSnapshot.get("price").toString());
+                    mProductPriceTextView.setText("₹"+documentSnapshot.get("price").toString());
 
                     mStorageReference= FirebaseStorage.getInstance().getReference("uploads")
                             .child(documentSnapshot.get("image").toString());

@@ -6,11 +6,15 @@
     android:layout_height="match_parent"
     tools:context=".SplashActivity">
 
-    <ImageView
+    <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
-        android:src="@drawable/vshops_logo" />
+        android:text="VShops"
+        android:textAppearance="@style/TextAppearance.AppCompat.Display4"
+        android:fontFamily="@font/lobster_two_bold_italic"
+        android:textColor="@color/design_default_color_primary"
+        />
 
     <TextView
         android:layout_width="wrap_content"
@@ -19,6 +23,7 @@
         android:layout_centerInParent="true"
         android:layout_marginBottom="24dp"
         android:text="KCR Technologies"
+        android:fontFamily="@font/merriweather"
         android:textColor="@color/black"
         android:textSize="18sp" />
 

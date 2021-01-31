@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -16,10 +15,12 @@
             style="@style/Widget.AppCompat.TextView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:fontFamily="@font/merriweather"
             android:padding="16dp"
             android:text="My Product Name"
             android:textAlignment="center"
-            android:textSize="24sp" />
+            android:textColor="@color/black"
+            android:textSize="36sp" />
 
         <ImageView
             android:id="@+id/my_product_image_view"
@@ -28,24 +29,28 @@
             android:layout_gravity="center_horizontal"
             android:layout_marginHorizontal="16dp"
             android:layout_marginVertical="8dp"
-            android:background="@android:color/black" />
+            android:background="@android:color/white" />
 
         <TextView
             android:id="@+id/my_product_price_text_view"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
+            android:fontFamily="@font/lato"
             android:padding="16dp"
             android:text="Price : 12,500"
-            android:textSize="24sp" />
+            android:textColor="@color/black"
+            android:textSize="28sp" />
 
         <TextView
             android:id="@+id/my_product_details_text_view"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:fontFamily="@font/lato"
             android:padding="16dp"
             android:text="Product Details : This product is good "
-            android:textSize="24sp" />
+            android:textColor="@color/black"
+            android:textSize="25sp" />
 
         <Button
             android:id="@+id/my_product_delete_button"
@@ -55,7 +60,7 @@
             android:layout_margin="16dp"
             android:layout_marginTop="16dp"
             android:background="@color/my_purchases_owl_blue"
-            android:padding="16dp"
+            android:padding="8dp"
             android:text="DELETE"
             android:textColor="#FFFFFF"
             android:textSize="24sp" />

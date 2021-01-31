@@ -66,7 +66,7 @@ public class AddProductActivity extends AppCompatActivity {
             public void onClick(View v) {
                 if((mUploadTask!=null)&&(mUploadTask.isInProgress()))
                 {
-                    Toast.makeText(AddProductActivity.this,"Upload in progress",Toast.LENGTH_SHORT).show();
+
                 }
                 else
                 {
@@ -93,7 +93,6 @@ public class AddProductActivity extends AppCompatActivity {
                     .addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
                         @Override
                         public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
-                                Toast.makeText(AddProductActivity.this,"Image uploaded sucessfully",Toast.LENGTH_SHORT).show();
                                 Map<String,Object> product=new HashMap<>();
                                 product.put("product_name",mName.getText().toString());
                                 product.put("price",mPrice.getText().toString());

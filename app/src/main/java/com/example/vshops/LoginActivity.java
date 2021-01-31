@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.InputType;
 import android.util.Patterns;
 import android.view.View;
 import android.widget.Button;
@@ -35,6 +36,8 @@ public class LoginActivity extends AppCompatActivity {
 
         mEmailEditText = findViewById(R.id.email_edit_text);
         mPasswordEditText = findViewById(R.id.password_edit_text);
+        mPasswordEditText.setInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_PASSWORD);
+
         mLoginButton = findViewById(R.id.login_button);
         mSignUpButton = findViewById(R.id.signup_button);
 
@@ -85,6 +88,10 @@ public class LoginActivity extends AppCompatActivity {
                             }
                         }
                     });
+        }
+        else
+        {
+            Toast.makeText(LoginActivity.this, "Wrong (or blank) username/password", Toast.LENGTH_SHORT).show();
         }
 
     }

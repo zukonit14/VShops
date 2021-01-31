@@ -45,13 +45,12 @@ public class ShopAdapter extends ArrayAdapter<Shop> {
 
         // Populate the data into the template view using the data object
         shopName.setText(mShopArrayList.get(position).mShopName);
-        shopEmailID.setText("Shop email:"+mShopArrayList.get(position).mEmailID);
+        shopEmailID.setText(mShopArrayList.get(position).mEmailID);
         // Return the completed view to render on screen
         convertView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 String s=shopName.getText().toString();
-                Toast.makeText(getContext(),s,Toast.LENGTH_SHORT).show();
                 Intent intent=new Intent(getContext(), ShopActivity.class);
                 intent.putExtra("shopEmailID",mShopArrayList.get(position).mEmailID);
                getContext().startActivity(intent);

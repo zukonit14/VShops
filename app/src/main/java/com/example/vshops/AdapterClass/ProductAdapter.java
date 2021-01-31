@@ -51,8 +51,7 @@ public class ProductAdapter extends ArrayAdapter<Product> {
             @Override
             public void onClick(View v) {
                 String s=productName.getText().toString();
-                Toast.makeText(getContext(),s+"\n"+"Running sucessful..",Toast.LENGTH_SHORT).show();
-                //Intent intent=new Intent(getContext(), ShopActivity.class);
+
                 if(flag==ORDER_PRODUCT){
 
                     Intent intent=new Intent(getContext(), OrderProductActivity.class);

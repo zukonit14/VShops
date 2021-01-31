@@ -66,34 +66,21 @@ public class ProfileFragment extends Fragment {
         {
             case R.id.edit_profile_item:
             {
-                Toast.makeText(getContext(),"Edit Profile",Toast.LENGTH_SHORT).show();
                 startActivity(new Intent(getContext(), EditProfileActivity.class));
-                //getActivity().finish();
                 break;
             }
-            case R.id.delete_profile_item:
+            case R.id.share_profile_item:
             {
-                Toast.makeText(getContext(),"Delete Profile",Toast.LENGTH_SHORT).show();
-
-               /* Map<String,Object> order=new HashMap<>();
-                order.put("shop_email","Shop no longer exist");
-                order.put("status","Rejected");
-
-                FirebaseFirestore.getInstance().collection("orders")
-                        .whereEqualTo("shop_email",FirebaseAuth.getInstance().getCurrentUser().getEmail())
-                        .whereEqualTo("status","Pending");
-
-
-                FirebaseFirestore.getInstance().collection("users")
-                        .document(FirebaseAuth.getInstance().getCurrentUser().getEmail())
-                        .delete();
-                FirebaseUser user=FirebaseAuth.getInstance().getCurrentUser();
-                user.delete();*/
+                Intent intent=new Intent(Intent.ACTION_SEND);
+                intent.setType("text/plain");
+                String shareBody="Visit My Online Shop on VShops App and Enjoy Shopping Online with local Shops.\nFollow this link to visit the My Shop : \n";
+                shareBody+="http://www.vshops.com/" + mEmail.getText().toString();
+                intent.putExtra(Intent.EXTRA_TEXT,shareBody);
+                startActivity(Intent.createChooser(intent,"Share using"));
                 break;
             }
             case R.id.logout_profile_item:
             {
-                Toast.makeText(getContext(),"Logout",Toast.LENGTH_SHORT).show();
                 FirebaseAuth.getInstance().signOut();
                 startActivity(new Intent(getContext(), LoginActivity.class));
                 getActivity().finish();

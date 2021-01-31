@@ -2,22 +2,29 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:layout_margin="10dp"
-    android:orientation="vertical">
+    android:background="@drawable/curve_background"
+    android:orientation="vertical"
+    android:elevation="8dp"
+    android:padding="8dp">
 
     <TextView
         android:id="@+id/shop_name"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="10dp"
-        android:text="Product name"
-        android:textAppearance="@style/TextAppearance.AppCompat.Display1" />
+        android:fontFamily="@font/merriweather"
+        android:text="Shop name"
+        android:textColor="@color/black"
+        android:textSize="36sp" />
 
     <TextView
         android:id="@+id/shop_email_id"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:fontFamily="@font/lato"
         android:text="Shop email"
-        android:textAppearance="@style/TextAppearance.AppCompat.Large" />
+        android:textColor="@color/black"
+        android:textSize="24sp" />
+
 
 </LinearLayout>

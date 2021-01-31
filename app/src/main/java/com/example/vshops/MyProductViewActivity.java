@@ -58,7 +58,7 @@ public class MyProductViewActivity extends AppCompatActivity {
                 if (documentSnapshot.exists()) {
                     mMyProductTitleTextView.setText(documentSnapshot.get("product_name").toString());
                     mMyProductDetailsTextView.setText(documentSnapshot.get("details").toString());
-                    mMyProductPriceTextView.setText(documentSnapshot.get("price").toString());
+                    mMyProductPriceTextView.setText("₹"+documentSnapshot.get("price").toString());
 
                     mImageUrlForDelete=documentSnapshot.get("image").toString();
                     mStorageReference = FirebaseStorage.getInstance().getReference("uploads")
@@ -93,12 +93,12 @@ public class MyProductViewActivity extends AppCompatActivity {
                 storageReference.delete().addOnSuccessListener(new OnSuccessListener<Void>() {
                     @Override
                     public void onSuccess(Void aVoid) {
-                        Toast.makeText(MyProductViewActivity.this, "Product image deleted successfully from storage", Toast.LENGTH_SHORT).show();
+
                     }
                 }).addOnFailureListener(new OnFailureListener() {
                     @Override
                     public void onFailure(@NonNull Exception e) {
-                        Toast.makeText(MyProductViewActivity.this, "Image removal failure", Toast.LENGTH_SHORT).show();
+
                     }
                 });
 

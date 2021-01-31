@@ -9,7 +9,7 @@
     <!-- Menu titles-->
     <string name="edit_profile">Edit</string>
     <string name="logout">Log-out</string>
-    <string name="delete_account">Delete account</string>
+    <string name="share_shop">Share shop</string>
 
     <string name="search_shop">Search shop name</string>
 
@@ -19,5 +19,12 @@
     <string name="user_email">crahate11@gmail.com</string>
     <string name="user_address">Aishwaryam  Courtyard phase 2  Room no. B 602 gat no. 1169 and 1170  Near  Ganesh International School ,Newale wasti, Akurdi Chikhali road ,Pune 411062</string>
     <string name="user_shop_name">User Shop</string>
+    <string name="title_activity_locate_shop_maps">Map</string>
+
+    <!--Map related Api key-->
+    <string name="map_key" translatable="false">AIzaSyDlo9CRxy0a7ngX2sB9_xucTCLddPxy5WI</string>
+    <string name="title_activity_locate_all_shops_maps">Map</string>
+    <string name="title_activity_locate_selected_shop_maps">Map</string>
+
 
 </resources>

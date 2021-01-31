@@ -9,7 +9,11 @@
     <ListView
         android:id="@+id/my_product_list_view"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_height="match_parent"
+        android:layout_marginHorizontal="8dp"
+        android:layout_marginTop="16dp"
+        android:divider="@android:color/transparent"
+        android:dividerHeight="10sp" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/fab_product_add"
@@ -18,7 +22,7 @@
         android:layout_alignParentRight="true"
         android:layout_alignParentBottom="true"
         android:layout_margin="16dp"
-        android:backgroundTint="@color/teal"
+        android:backgroundTint="@color/my_orders_owl_yellow"
         android:elevation="6dp"
         android:src="@drawable/ic_baseline_add_circle_outline_48"
         app:fabSize="auto" />
