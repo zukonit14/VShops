@@ -3,6 +3,7 @@ package com.example.vshops.AdapterClass;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
+import android.text.format.DateFormat;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -19,7 +20,9 @@ import com.example.vshops.OrderDescriptionActivity;
 import com.example.vshops.R;
 
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.List;
+import java.util.Locale;
 
 public class OrderAdapter extends ArrayAdapter<Order> {
 
@@ -57,7 +60,8 @@ public class OrderAdapter extends ArrayAdapter<Order> {
         // Populate the data into the template view using the data object
         productName.setText(mOrdersArrayList.get(position).mProductName);
         status.setText(mOrdersArrayList.get(position).mStatus);
-        String mDate=mOrdersArrayList.get(position).mTimestamp.toDate().getDay()+"/"+mOrdersArrayList.get(position).mTimestamp.toDate().getMonth()+"/"+(Integer.toString(mOrdersArrayList.get(position).mTimestamp.toDate().getYear()+1900));
+        String s=getDate(mOrdersArrayList.get(position).mTimestamp.toDate().getTime());
+        String mDate=s;
         time.setText(mDate);
         qty.setText("Quantity: "+mOrdersArrayList.get(position).mQty);
         if(flag!=MY_ORDERS)
@@ -92,5 +96,12 @@ public class OrderAdapter extends ArrayAdapter<Order> {
 
         // Return the completed view to render on screen
         return convertView;
+    }
+
+    private String getDate(long time) {
+        Calendar cal = Calendar.getInstance(Locale.ENGLISH);
+        cal.setTimeInMillis(time);
+        String date = DateFormat.format("EEE MMM dd, yyyy ", cal).toString();
+        return date;
     }
 }
